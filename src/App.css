@@ -4,17 +4,27 @@
   position: relative;
 }
 
-.R518,
 .OASYSLAB,
+.R518,
 .R516 {
   position: absolute;
   transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
 }
 
-.R518:hover,
 .OASYSLAB:hover,
+.R518:hover,
 .R516:hover {
-  transform: scale(1.1);
+  transform: scale(2);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   opacity: 0.9;
+  z-index: 1; /* Bring the hovered div to the front */
+}
+
+.R518:hover ~ .OASYSLAB,
+.R518:hover ~ .R516,
+.OASYSLAB:hover ~ .R518,
+.OASYSLAB:hover ~ .R516,
+.R516:hover ~ .R518,
+.R516:hover ~ .OASYSLAB {
+  z-index: 0; /* Send the non-hovered divs to the back */
 }
